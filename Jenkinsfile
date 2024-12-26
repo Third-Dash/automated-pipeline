@@ -13,9 +13,9 @@ pipeline {
       steps {
         script {
           if (isUnix()) {
-            sh "dotnet restore ${workspace}/automated-pipeline/projects.sln"
+            sh "dotnetRestore  ${workspace}/automated-pipeline/projects.sln"
                     } else {
-            bat "dotnet restore ${workspace}\\automated-pipeline\\projects.sln"
+            bat "dotnetRestore  ${workspace}\\automated-pipeline\\projects.sln"
           }
         }
       }
@@ -24,9 +24,9 @@ pipeline {
       steps {
         script {
           if (isUnix()) {
-            sh "dotnet build ${workspace}/automated-pipeline/projects.sln --configuration Release"
+            sh "dotnetBuild  ${workspace}/automated-pipeline/projects.sln --configuration Release"
                     } else {
-            bat "dotnet build ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
+            bat "dotnetBuild  ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
           }
         }
       }
