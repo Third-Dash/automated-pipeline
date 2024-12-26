@@ -1,35 +1,49 @@
-def workspace = env.WORKSPACE
-
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'mcr.microsoft.com/dotnet/sdk:9.0'
+            args '-u root:root'
+        }
+    }
 
     stages {
         stage('Clean workspace') {
-      steps {
-        cleanWs()
-      }
+            steps {
+                cleanWs()
+            }
         }
         stage('Restore packages') {
-      steps {
-        script {
-          if (isUnix()) {
-            sh "dotnetRestore  ${workspace}/automated-pipeline/projects.sln"
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh "dotnet restore ${workspace}/automated-pipeline/projects.sln"
                     } else {
-            bat "dotnetRestore  ${workspace}\\automated-pipeline\\projects.sln"
-          }
-        }
-      }
+                        bat "dotnet restore ${workspace}\\automated-pipeline\\projects.sln"
+                    }
+                }
+            }
         }
         stage('Build') {
-      steps {
-        script {
-          if (isUnix()) {
-            sh "dotnetBuild  ${workspace}/automated-pipeline/projects.sln --configuration Release"
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh "dotnet build ${workspace}/automated-pipeline/projects.sln --configuration Release"
                     } else {
-            bat "dotnetBuild  ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
-          }
+                        bat "dotnet build ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
+                    }
+                }
+            }
         }
-      }
+        stage('Publish') {
+            steps {
+                script {
+                    if (isUnix()) {
+                        sh "dotnet publish ${workspace}/automated-pipeline/projects.sln --configuration Release"
+                    } else {
+                        bat "dotnet publish ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
+                    }
+                }
+            }
         }
     }
 }
