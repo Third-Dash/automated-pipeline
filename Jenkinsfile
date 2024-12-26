@@ -11,12 +11,24 @@ pipeline {
         }
         stage('Restore packages') {
       steps {
-        bat "dotnet restore ${workspace}\\automated-pipeline\\projects.sln"
+        script {
+          if (isUnix()) {
+            sh "dotnet restore ${workspace}/automated-pipeline/projects.sln"
+                    } else {
+            bat "dotnet restore ${workspace}\\automated-pipeline\\projects.sln"
+          }
+        }
       }
         }
         stage('Build') {
       steps {
-        bat "dotnet build ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
+        script {
+          if (isUnix()) {
+            sh "dotnet build ${workspace}/automated-pipeline/projects.sln --configuration Release"
+                    } else {
+            bat "dotnet build ${workspace}\\automated-pipeline\\projects.sln --configuration Release"
+          }
+        }
       }
         }
     }
