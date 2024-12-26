@@ -1,0 +1,14 @@
+D:\projects\JenkinSample\bin\Debug\net9.0\JenkinSample.deps.json
+D:\projects\JenkinSample\bin\Debug\net9.0\JenkinSample.dll
+D:\projects\JenkinSample\bin\Debug\net9.0\JenkinSample.pdb
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.AssemblyInfoInputs.cache
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.AssemblyInfo.cs
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.csproj.CoreCompileInputs.cache
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.dll
+D:\projects\JenkinSample\obj\Debug\net9.0\refint\JenkinSample.dll
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.pdb
+D:\projects\JenkinSample\obj\Debug\net9.0\ref\JenkinSample.dll
+D:\projects\JenkinSample\bin\Debug\net9.0\JenkinSample.exe
+D:\projects\JenkinSample\bin\Debug\net9.0\JenkinSample.runtimeconfig.json
+D:\projects\JenkinSample\obj\Debug\net9.0\JenkinSample.genruntimeconfig.cache
